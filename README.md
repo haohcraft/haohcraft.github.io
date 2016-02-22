@@ -1,8 +1,4 @@
-# gatsby-starter-blog
-Gatsby starter for creating a blog
+# Hao's Blog
+If you have lemons, you'd better make some lemonade
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-`gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
-
-## Running in development
-`gatsby develop`
+This project is built on [gatsby](https://github.com/gatsbyjs/gatsby)
