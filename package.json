@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-blog",
-  "version": "1.0.0",
-  "description": "Starter Gatsby Blog",
+  "name": "haohblog",
+  "version": "0.0.1",
+  "description": "If you have lemons, you'd better make some lemonade",
   "main": "n/a",
   "scripts": {
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
@@ -10,17 +10,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/haohcraft/haohblog.git"
   },
   "keywords": [
     "gatsby"
   ],
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Hao Huang <haohcraft@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
+    "url": "https://github.com/haohcraft/haohblog/issues"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/haohcraft/haohblog#readme",
   "dependencies": {
     "lodash": "^4.5.0",
     "moment": "^2.11.2",
