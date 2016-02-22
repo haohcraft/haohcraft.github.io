@@ -34,7 +34,7 @@ class MarkdownWrapper extends React.Component {
           <ReadNext post={post} pages={route.pages} />
           <p>
             <img
-              src={link('/kyle-round-small-pantheon.jpg')}
+              src={link('/assets/images/base/profile.jpg')}
               style={{
                 float: 'left',
                 marginRight: rhythm(1/4),

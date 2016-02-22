@@ -38,7 +38,7 @@ class BlogIndex extends React.Component {
             }}
           >
             <img
-              src="./kyle-round-small-pantheon.jpg"
+              src="./assets/images/base/profile.jpg"
               style={{
                 float: 'left',
                 marginRight: rhythm(1/4),
