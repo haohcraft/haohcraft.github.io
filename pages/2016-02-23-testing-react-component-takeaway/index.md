@@ -18,7 +18,7 @@ At this moment when writing the test code for the components, there are two conc
 So the testing would be devided into two parts: **Render** and **Behavior**. And there are different *how-to*s and *tips* in each part.
 
 ## Render
-This part of the test mainly aims for the rendered components created in the `render` cycle. And since in the React/Redux framework we split the components into the *Dummy* and the *Smart* ones, this part would focus on those *Dummy* ones.
+This part of the test mainly aims for the rendered components created in the `render` cycle. And since in the React/Redux framework we split the components into the *Dumb* and the *Smart* ones, this part would focus on those *Dumb* ones.
 
 ### Goal
 
@@ -36,7 +36,7 @@ And of course, there are two other variations of these two but to find rendred c
 
 ### Case Study
 
-For a **dummy component** like this:
+For a **Dumb component** like this:
 
 ```
 const AComponent = () => (<input className="test" placeholder="haha" value="lala" />);
@@ -99,12 +99,8 @@ describe('render', () => {
 });
 ```
 
-**More Concrete Example**
-
-[component](https://git.dataminr.com/frontend-team/Dan/blob/3605ee221fc7829282b22d28bb2abf551dcfd144/application/app/v2/components/queryinput/views/item/tail.js) | [test](https://git.dataminr.com/frontend-team/Dan/blob/3605ee221fc7829282b22d28bb2abf551dcfd144/application/app/v2/components/queryinput/test/queryinputitem.tail.test.js)
-
 ## Behavior
-The behavior (dispatching actions) is the only way to change the global State. And since **Smart** Components take the responsibility to assemblle the dummy ones, testing on the user interaction flow usually happens there. If there is no **smart** component, then we need to make a **smart** wrapper component.
+The behavior (dispatching actions) is the only way to change the global State. And since **Smart** Components take the responsibility to assemblle the Dumb ones, testing on the user interaction flow usually happens there. If there is no **smart** component, then we need to make a **smart** wrapper component.
 
 ### Tool/Strategy 
 
@@ -124,12 +120,74 @@ The behavior (dispatching actions) is the only way to change the global State. A
     TestUtils.Simulate.keyDown(inputEl, {key: "Enter", keyCode: "13"});
     ```
 - Use a Wrapper Component
-This is a case where 
+
+    Since we are trying to eliminate the inner state to make a component as Dumb as possible, there is a case where a series of actions would implicitly change the component props to affect the UI. For testing this, one of the approaches is to create a parent component to wrap the testing target. 
+
+    In the wrapped component, set its state as props on the testing target. And use inserted callback functions to change the parent component's state in order to change the target's props.
+
 
 ### Case Study
+For a component like below:
+```
+class CComponent extends React.Component {
+    render() {
+        return <div>
+            {this.buildContent()}
+        </div>;
+    }
+    onClick() {
+        this.props.enable();
+    }
+    buildContent() {
+        const {disabled} = props;
+        return <div className="test" data-enabled={disabled ? "0" : "1"} onClick={::this.onClick}>
+            Hello
+        </div>;
+    }
+}
+```
+Obviously the `dataset.enabled` on the `test` content changes when we click it to fire the `this.props.enable` function.
+
+In order to test the `click` event, a parent component is needed.
+
+```
+it("should enable this input field when clicking the iconButton after it has been disabled", () => {
+    class Wrapper extends React.Component {
+        constructor() {
+            super();
+            this.state = {
+                enabled: true
+            };
+        }
+        render() {
+            return <div>
+                <CComponent {...{
+                    disabled: !this.state.enabled,
+                    enable: ::this.enable
+                }}/>
+            </div>;
+        }
+        enable() {
+            this.setState({
+                enabled: !this.state.enabled            
+            });
+        }
+    }
+    const wrapperInstance = TestUtils.renderIntoDocument(<Wrapper />);
+    const testEl = TestUtils.findRenderedDOMComponentWithClass(wrapperInstance, 'test');
+    expect(testEl.dataset.enabled).to.equal('0');
+    TestUtils.Simulate.click(testEl);
+    expect(testEl.dataset.enabled).to.equal('1');
+    TestUtils.Simulate.click(testEl);
+    expect(testEl.dataset.enabled).to.equal('0');
+});
+
+```
 
 
 ## Extra
 In `React v0.13`, there is another technique be introduced [**Shallow Rendering**](http://facebook.github.io/react/docs/test-utils.html#shallow-rendering) for testing.
+
+Airbnb's test lib: [enzyme](https://github.com/airbnb/enzyme)
 
 
