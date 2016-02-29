@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import DocumentTitle from 'react-document-title'
+import DisqusThread from 'react-disqus-thread';
 
 import ReadNext from '../components/ReadNext'
 import { rhythm } from 'utils/typography'
@@ -32,7 +33,11 @@ class MarkdownWrapper extends React.Component {
             }}
           />
           <ReadNext post={post} pages={route.pages} />
-          
+          <DisqusThread
+            shortname="haohcraft"
+            title={post.title}
+            url={"http://haohcraft.com#{@props.page.path}"}
+          />
         </div>
       </DocumentTitle>
     )
