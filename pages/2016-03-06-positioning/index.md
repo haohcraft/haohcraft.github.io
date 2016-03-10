@@ -9,7 +9,7 @@ During the past few monthes, I have been writing components like dropdown, toolt
 
 ## Position API
 
-Positioning is all about relativity and boundry. An element is placed to either the `window`, its `view port` or a `target` element. And we always need to consider the relationship between the content and the boundry of those three above based on practical business logics.
+Positioning is all about relativity and boundary. An element is placed to either the `window`, its `view port` or a `target` element. And we always need to consider the relationship between the content and the boundry of those three above based on practical business logics.
 
 ### Position API of `window`
 
