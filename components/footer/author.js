@@ -17,7 +17,7 @@ export default class Author extends Component {
                             borderRadius: '3px'
                         }} />
                 </a>
-                <strong>{config.authorName}</strong> lives in New York City and currently works as a Front End Engineer at <a href="https://www.dataminr.com/" target="_blank">Dataminr</a>
+                <strong>{config.authorName}</strong> lives in New York City and currently works as a Front End Engineer at <a href="https://www.dataminr.com/" target="_blank">Dataminr</a> to write abstracts with React/Redux.
             </p>
         );
     }
