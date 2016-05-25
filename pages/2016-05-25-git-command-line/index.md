@@ -5,6 +5,13 @@ layout: post
 path: "/git-command-cheatsheet/"
 ---
 
+####How to look up the first few commits
+
+```
+git log --pretty=oneline  master | tail -1
+
+```
+
 ####Reset
 
 ```
