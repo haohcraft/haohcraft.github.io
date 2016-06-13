@@ -16,6 +16,7 @@ Good articles about runtime web performance:
 
 - [Discussion about debouncing scroll](https://github.com/google/WebFundamentals/issues/2227)
 
+- [Introducing 'layout boundaries'](http://wilsonpage.co.uk/introducing-layout-boundaries/)
 
 ####Tool
 
