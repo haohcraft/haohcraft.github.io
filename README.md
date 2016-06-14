@@ -1,2 +1,0 @@
-- `master` branch for haohcraft.github.io
-- `dev` branch for the development
