@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { link } from 'gatsby-helpers';
+import { prefixLink } from 'gatsby-helpers';
 import { rhythm } from 'utils/typography';
 import { config } from 'config';
 export default class Author extends Component {
@@ -7,7 +7,7 @@ export default class Author extends Component {
         return (
             <p>
                 <a target="_blank" href="https://www.linkedin.com/in/haohjob">
-                    <img src={link('/assets/images/base/profile.jpg')}
+                    <img src={prefixLink('/assets/images/base/profile.jpg')}
                         style={{
                             float: 'left',
                             marginRight: rhythm(1/4),

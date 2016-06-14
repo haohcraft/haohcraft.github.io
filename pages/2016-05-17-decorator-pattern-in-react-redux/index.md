@@ -114,3 +114,4 @@ const Page = composeView(config)(LayoutComponent);
 ```
     
 ##### Advantages
+

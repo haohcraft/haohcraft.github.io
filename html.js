@@ -1,6 +1,6 @@
 import React from 'react'
 import DocumentTitle from 'react-document-title'
-import { link } from 'gatsby-helpers'
+import { prefixLink } from 'gatsby-helpers'
 import { TypographyStyle } from 'utils/typography'
 
 export default class Html extends React.Component {
@@ -13,7 +13,7 @@ export default class Html extends React.Component {
 
     let cssLink
     if (process.env.NODE_ENV === 'production') {
-      cssLink = <link rel="stylesheet" href={link('/styles.css')} />
+      cssLink = <link rel="stylesheet" href={prefixLink('/styles.css')} />
     }
 
     return (
@@ -32,7 +32,7 @@ export default class Html extends React.Component {
         </head>
         <body className="landing-page">
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: body }} />
-          <script src={link('/bundle.js')}/>
+          <script src={prefixLink('/bundle.js')}/>
         </body>
       </html>
     )
