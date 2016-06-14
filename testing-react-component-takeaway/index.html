@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+ <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="user-scalable=no width=device-width, initial-scale=1.0 maximum-scale=1.0"/><title></title><link rel="shortcut icon"/><style id="typography.js">/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+html {
+  box-sizing: border-box;
+  font-size: 112.5%;
+  line-height: 1.5em;
+  overflow-y: scroll;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  color: hsl(0,0%,20%);
+  font-family: georgia, serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+/* Make image responsive by default */
+img {
+  max-width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6,hgroup,ul,ol,dl,dd,p,figure,pre,table,fieldset,blockquote,form,noscript,iframe,img,hr {
+margin: 0;
+margin-bottom: 1.5rem;
+padding: 0;
+}
+
+blockquote {
+margin: 1.5rem 3.75rem;
+}
+
+b,strong {
+font-weight: 700
+}
+
+hr {
+background: hsl(0,0%,80%);
+border: none;
+height: 1px;
+margin-bottom: calc(1.5rem - 1px);
+}
+
+ol,ul {
+list-style-position: outside;
+margin-left: 1.5rem;
+}
+
+ul li,ol li {
+padding-left: 0;
+}
+
+code,kbd,pre,samp {
+font-size: 0.85rem;
+line-height: 1.5rem;
+}
+
+table {
+font-size: 1rem;
+line-height: 2.25rem;
+width: 100%;
+}
+
+thead {
+text-align: left;
+}
+
+h1,h2,h3,h4,h5,h6 {
+color: hsl(0,0%,20%);
+font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+font-weight: 700;
+}
+
+h1 {
+font-size: 1.728rem;
+line-height: 2.25rem;
+}
+
+h2 {
+font-size: 1.44rem;
+line-height: 2.25rem;
+}
+
+h3 {
+font-size: 1.2rem;
+line-height: 1.5rem;
+}
+
+h4 {
+font-size: 1.12924rem;
+line-height: 1.5rem;
+}
+
+h5 {
+font-size: 1.06266rem;
+line-height: 1.5rem;
+}
+
+h6 {
+font-size: 1rem;
+line-height: 1.5rem;
+}
+
+
+</style><link rel="stylesheet" href="/styles.css"/></head><body class="landing-page"><div id="react-mount"><div style="max-width:36rem;margin-left:auto;margin-right:auto;padding:3rem 0.75rem;" data-reactid=".294q8dgykg0" data-react-checksum="-1307578724"><h3 data-reactid=".294q8dgykg0.0:0"><a style="text-decoration:none;color:inherit;" href="/" data-reactid=".294q8dgykg0.0:0.0">Hao</a></h3><div class="markdown" data-reactid=".294q8dgykg0.0:1"><h1 data-reactid=".294q8dgykg0.0:1.0">My Takeaway for React Component Testing</h1><div data-reactid=".294q8dgykg0.0:1.1"><h2>Introduce</h2>
+<p>I have been working with React/Redux since Oct., 2015 at Dataminr in production. Along this journey, there are some takeawayes I gained and would like to share. Hopefully it will help you learn React testing from my experience and avoid some rookie mistakes.</p>
+<p>At this moment when writing the test code for the components, there are two concepts we should bear in mind. These two would indicate <strong>what and how</strong> we would like to test, and even how we write React componnets in general.</p>
+<ul>
+<li>The UI should only reflect one snapshot of the State</li>
+<li>The only way to change the State is to dispatch actions</li>
+</ul>
+<p>So the testing would be devided into two parts: <strong>Render</strong> and <strong>Behavior</strong>. And there are different <em>how-to</em>s and <em>tips</em> in each part.</p>
+<h2>Render</h2>
+<p>This part of the test mainly aims for the rendered components created in the <code>render</code> cycle. And since in the React/Redux framework we split the components into the <em>Dumb</em> and the <em>Smart</em> ones, this part would focus on those <em>Dumb</em> ones.</p>
+<h3>Goal</h3>
+<p>To verify the existence of the test target base on the prop/state data</p>
+<h3>Tool</h3>
+<p>In this case, <a href="http://facebook.github.io/react/docs/test-utils.html"><code>react-addons-test-utils</code></a> has been taken advantages of, specificly these methods below I have found very helpful.</p>
+<ol>
+<li><a href="http://facebook.github.io/react/docs/test-utils.html#scryrendereddomcomponentswithclass">findRenderedDOMComponentWithClass</a> - to find the <strong>only</strong> one rendered component by its class name in the tree, otherwise it would throw an <em>un-matched</em> error.</li>
+<li><a href="http://facebook.github.io/react/docs/test-utils.html#scryrendereddomcomponentswithclass">scryRenderedDOMComponentsWithClass</a> - to find all the rendered components by the class name in the tree. This will always return an array, either an empty one or not.</li>
+</ol>
+<p>And of course, there are two other variations of these two but to find rendred components by <code>Tag</code>.</p>
+<h3>Case Study</h3>
+<p>For a <strong>Dumb component</strong> like this:</p>
+<pre><code>const AComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (&lt;input className=<span class="hljs-string">"test"</span> placeholder=<span class="hljs-string">"haha"</span> value=<span class="hljs-string">"lala"</span> /&gt;);
+</code></pre>
+<p>The test code would look like:</p>
+<pre><code>describe('render', () =&gt; {
+    it('should create the input', () =&gt; {
+        const componentInstance = TestUtils.renderIntoDocument(<span class="hljs-name">&lt;AComponent</span> {...defaultProps} /&gt;)<span class="hljs-comment">;</span>
+        const inputEl = TestUtils.scryRenderedDOMComponentsWithClass(<span class="hljs-name">componentInstance</span>, 'test')<span class="hljs-comment">;</span>
+        // Or const inputEl = TestUtils.scryRenderedDOMComponentsWithTag(<span class="hljs-name">componentInstance</span>, 'input')<span class="hljs-comment">;</span>
+        expect(<span class="hljs-name">inputEl</span>).to.have.length(<span class="hljs-number">1</span>)<span class="hljs-comment">;</span>
+    })<span class="hljs-comment">;</span>
+})<span class="hljs-comment">;</span>
+
+</code></pre>
+<p>Notice that we just check its existence by checking the length of what we can find in the tree.</p>
+<hr>
+<p>For a more complicated case where the UI depends on the variation of the props.</p>
+<pre><code>export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    render() {
+        <span class="hljs-keyword">return</span> &lt;div&gt;
+            {<span class="hljs-keyword">this</span>.buildList()}
+        &lt;/div&gt;;
+    }
+    buildList() {
+        const {items} = <span class="hljs-keyword">this</span>.props;
+        <span class="hljs-keyword">return</span> items.map((i, k) =&gt; (&lt;div className=<span class="hljs-string">"item"</span> key={k} &gt;{i}&lt;/div&gt;));
+    }
+}
+</code></pre>
+<p>The test code would look like:</p>
+<pre><code>describe('render', () =&gt; {
+    it('should create a list one item', () =&gt; {
+        const props = {
+            items: ['a']
+        }<span class="hljs-comment">;</span>
+        const componentInstance = TestUtils.renderIntoDocument(<span class="hljs-name">&lt;BComponent</span> {...props} /&gt;)<span class="hljs-comment">;</span>
+        const inputEl = TestUtils.scryRenderedDOMComponentsWithClass(<span class="hljs-name">componentInstance</span>, 'item')<span class="hljs-comment">;</span>
+        expect(<span class="hljs-name">inputEl</span>).to.have.length(<span class="hljs-number">1</span>)<span class="hljs-comment">;</span>
+    })<span class="hljs-comment">;</span>
+
+    it('should create a list two items', () =&gt; {
+        const props = {
+            items: ['a', 'b']
+        }<span class="hljs-comment">;</span>
+        const componentInstance = TestUtils.renderIntoDocument(<span class="hljs-name">&lt;BComponent</span> {...props} /&gt;)<span class="hljs-comment">;</span>
+        const inputEl = TestUtils.scryRenderedDOMComponentsWithClass(<span class="hljs-name">componentInstance</span>, 'item')<span class="hljs-comment">;</span>
+        expect(<span class="hljs-name">inputEl</span>).to.have.length(<span class="hljs-number">2</span>)<span class="hljs-comment">;</span>
+    })<span class="hljs-comment">;</span>
+})<span class="hljs-comment">;</span>
+</code></pre>
+<h2>Behavior</h2>
+<p>The behavior (dispatching actions) is the only way to change the global State. And since <strong>Smart</strong> Components take the responsibility to assemblle the Dumb ones, testing on the user interaction flow usually happens there. If there is no <strong>smart</strong> component, then we need to make a <strong>smart</strong> wrapper component.</p>
+<h3>Tool/Strategy</h3>
+<ul>
+<li>
+<p><a href="https://facebook.github.io/react/docs/test-utils.html#simulate">TestUtils.Simulate</a>:</p>
+<ol>
+<li>click</li>
+</ol>
+<pre><code><span class="hljs-selector-tag">TestUtils</span><span class="hljs-selector-class">.Simulate</span><span class="hljs-selector-class">.click</span>(<span class="hljs-selector-tag">nodeEl</span>);
+</code></pre>
+<ol start="2">
+<li>change</li>
+</ol>
+<pre><code>inputEl.<span class="hljs-keyword">value</span> = <span class="hljs-string">'haha'</span>;
+TestUtils.Simulate.change(inputEl);
+</code></pre>
+<ol start="3">
+<li>keyDown</li>
+</ol>
+<pre><code><span class="hljs-selector-tag">TestUtils</span><span class="hljs-selector-class">.Simulate</span><span class="hljs-selector-class">.keyDown</span>(<span class="hljs-selector-tag">inputEl</span>, {<span class="hljs-attribute">key</span>: <span class="hljs-string">"Enter"</span>, keyCode: <span class="hljs-string">"13"</span>});
+</code></pre>
+</li>
+<li>
+<p>Use a Wrapper Component</p>
+<p>Since we are trying to eliminate the inner state to make a component as Dumb as possible, there is a case where a series of actions would implicitly change the component props to affect the UI. For testing this, one of the approaches is to create a parent component to wrap the testing target.</p>
+<p>In the wrapped component, set its state as props on the testing target. And use inserted callback functions to change the parent component’s state in order to change the target’s props.</p>
+</li>
+</ul>
+<h3>Case Study</h3>
+<p>For a component like below:</p>
+<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    render() {
+        <span class="hljs-keyword">return</span> &lt;div&gt;
+            {<span class="hljs-keyword">this</span>.buildContent()}
+        &lt;/div&gt;;
+    }
+    onClick() {
+        <span class="hljs-keyword">this</span>.props.enable();
+    }
+    buildContent() {
+        const {disabled} = props;
+        <span class="hljs-keyword">return</span> &lt;div className=<span class="hljs-string">"test"</span> data-enabled={disabled ? <span class="hljs-string">"0"</span> : <span class="hljs-string">"1"</span>} onClick={::<span class="hljs-keyword">this</span>.onClick}&gt;
+            <span class="hljs-type">Hello</span>
+        &lt;/div&gt;;
+    }
+}
+</code></pre>
+<p>Obviously the <code>dataset.enabled</code> on the <code>test</code> content changes when we click it to fire the <code>this.props.enable</code> function.</p>
+<p>In order to test the <code>click</code> event, a parent component is needed.</p>
+<pre><code>it(<span class="hljs-string">"should enable this input field when clicking the iconButton after it has been disabled"</span>, () =&gt; {
+    class Wrapper extends React.Component {
+        constructor() {
+            super()<span class="hljs-comment">;</span>
+            this.state = {
+                enabled: true
+            }<span class="hljs-comment">;</span>
+        }
+        render() {
+            return &lt;div&gt;
+                &lt;CComponent {...{
+                    disabled: !this.state.enabled,
+                    enable: :<span class="hljs-symbol">:this</span>.enable
+                }}/&gt;
+            &lt;/div&gt;<span class="hljs-comment">;</span>
+        }
+        enable() {
+            this.setState({
+                enabled: !this.state.enabled            
+            })<span class="hljs-comment">;</span>
+        }
+    }
+    const wrapperInstance = TestUtils.renderIntoDocument(<span class="hljs-name">&lt;Wrapper</span> /&gt;)<span class="hljs-comment">;</span>
+    const testEl = TestUtils.findRenderedDOMComponentWithClass(<span class="hljs-name">wrapperInstance</span>, 'test')<span class="hljs-comment">;</span>
+    expect(<span class="hljs-name">testEl</span>.dataset.enabled).to.equal('<span class="hljs-number">0</span>')<span class="hljs-comment">;</span>
+    TestUtils.Simulate.click(<span class="hljs-name">testEl</span>)<span class="hljs-comment">;</span>
+    expect(<span class="hljs-name">testEl</span>.dataset.enabled).to.equal('<span class="hljs-number">1</span>')<span class="hljs-comment">;</span>
+    TestUtils.Simulate.click(<span class="hljs-name">testEl</span>)<span class="hljs-comment">;</span>
+    expect(<span class="hljs-name">testEl</span>.dataset.enabled).to.equal('<span class="hljs-number">0</span>')<span class="hljs-comment">;</span>
+})<span class="hljs-comment">;</span>
+
+</code></pre>
+<h2>Extra</h2>
+<p>In <code>React v0.13</code>, there is another technique be introduced <a href="http://facebook.github.io/react/docs/test-utils.html#shallow-rendering"><strong>Shallow Rendering</strong></a> for testing.</p>
+<p>Airbnb’s test lib: <a href="https://github.com/airbnb/enzyme">enzyme</a></p>
+</div><em style="display:block;margin-bottom:3rem;" data-reactid=".294q8dgykg0.0:1.2"><span data-reactid=".294q8dgykg0.0:1.2.0">Posted </span><span data-reactid=".294q8dgykg0.0:1.2.1">February 23, 2016</span></em><hr style="margin-bottom:3rem;" data-reactid=".294q8dgykg0.0:1.3"/><noscript data-reactid=".294q8dgykg0.0:1.4"></noscript><div title="My Takeaway for React Component Testing" data-reactid=".294q8dgykg0.0:1.5"><div id="disqus_thread" data-reactid=".294q8dgykg0.0:1.5.0"></div><noscript data-reactid=".294q8dgykg0.0:1.5.1"><span data-reactid=".294q8dgykg0.0:1.5.1.0"><span data-reactid=".294q8dgykg0.0:1.5.1.0.0">Please enable JavaScript to view the</span><a href="http://disqus.com/?ref_noscript" data-reactid=".294q8dgykg0.0:1.5.1.0.1">comments powered by Disqus.</a></span></noscript><a href="http://disqus.com" class="dsq-brlink" data-reactid=".294q8dgykg0.0:1.5.2"><span data-reactid=".294q8dgykg0.0:1.5.2.0">blog comments powered by</span><span class="logo-disqus" data-reactid=".294q8dgykg0.0:1.5.2.1">Disqus</span></a></div></div><span style="display:block;clear:both;" data-reactid=".294q8dgykg0.1"> </span></div></div><script src="/bundle.js"></script></body></html>
