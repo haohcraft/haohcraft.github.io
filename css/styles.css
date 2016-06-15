@@ -25,3 +25,7 @@ ul {
 .BlogIndex-intro {
   font-style: italic;
 }
+
+.SocialNetworks li {
+  display: inline-block;
+}
