@@ -3,6 +3,7 @@ title: My Takeaway for React Component Testing
 date: "Tue Feb 23 2016 08:38:02 GMT-0500 (EST)"
 layout: post
 path: "/testing-react-component-takeaway/"
+intro: "A summary about what and how we should test on React components"
 ---
 
 ## Introduce

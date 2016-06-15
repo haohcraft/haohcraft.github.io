@@ -3,6 +3,7 @@ title: Decorator Patterns in React App
 date: 1463487495318
 layout: post
 path: "/decorator-pattern-in-react-app/"
+intro: "Some experimental way to compose nested view"
 ---
 
 I have been using React/Redux in production since last November-ish. Since then, our codebase has been evolving quite a lot and we are still doing experiments in order to well structure and resuse our code. Here are some *opinionated* experimental abstractions to fullfill that purpose.

@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { Container } from 'react-responsive-grid'
 import { prefixLink } from 'gatsby-helpers'
 import { rhythm, fontSizeToMS } from 'utils/typography'
+import ga from 'react-google-analytics'
 import { config } from 'config'
 
 import '../css/styles.css'
@@ -10,6 +11,11 @@ import '../css/styles.css'
 class Template extends React.Component {
   render () {
     const { location, children } = this.props
+    const GaInitializer = ga.Initializer
+    ga('create', config.googleAnalyticsId, 'auto')
+    ga('require', 'linkid')
+    ga('send', 'pageview')
+
     let header
     if (location.pathname === prefixLink('/')) {
       header = (
@@ -55,6 +61,7 @@ class Template extends React.Component {
       >
         {header}
         {children}
+        <GaInitializer />
       </Container>
     )
   }

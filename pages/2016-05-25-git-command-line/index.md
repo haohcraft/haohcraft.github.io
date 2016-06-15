@@ -3,6 +3,7 @@ title: Git Command Cheatsheet
 date: 1464205833696
 layout: post
 path: "/git-command-cheatsheet/"
+intro: "To put some useful but easy to forget Git command lines into this thread"
 ---
 
 #### How to look up the first few commits

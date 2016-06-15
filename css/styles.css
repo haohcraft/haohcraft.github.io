@@ -18,3 +18,10 @@ blockquote {
   margin-right: 0;
   padding-right: 0;
 }
+ul {
+  list-style-type: none;
+}
+
+.BlogIndex-intro {
+  font-style: italic;
+}

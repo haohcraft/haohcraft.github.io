@@ -3,6 +3,7 @@ title: A Generic Way to Show the Whole Text Whiling Hovering
 date: 1456848866730
 layout: post
 path: "/generic-way-to-show-text-when-hovering"
+intro: "A generic way to do tooltip in pure HTML"
 ---
 
 

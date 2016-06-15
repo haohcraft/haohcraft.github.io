@@ -3,6 +3,7 @@ title: Interesting Redux/React Repos
 date: 1458225063919
 layout: post
 path: "/interesting-redux-react-repos/"
+intro: "There are some interesting Redux/React related repos worthy to dive into."
 ---
 
 There are some interesting Redux/React related repos worthy to dive into.
