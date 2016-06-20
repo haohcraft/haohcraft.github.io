@@ -6,6 +6,13 @@ path: "/git-command-cheatsheet/"
 intro: "To put some useful but easy to forget Git command lines into this thread"
 ---
 
+#### How to show the log in a graph
+
+```
+git log --graph --oneline
+```
+
+
 #### How to look up the first few commits
 
 ```
