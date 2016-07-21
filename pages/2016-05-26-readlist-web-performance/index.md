@@ -21,3 +21,9 @@ Good articles about runtime web performance:
 #### Tool
 
 - [Paint Flashing Tool](https://developer.mozilla.org/en-US/docs/Tools/Paint_Flashing_Tool)
+
+#### Books
+
+- High Performance Web Sites
+- Even Faster Web Sites
+- Browser Networking
