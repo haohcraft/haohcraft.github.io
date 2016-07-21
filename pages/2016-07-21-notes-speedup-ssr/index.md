@@ -16,7 +16,7 @@ intro: "About how to speed up React server side rendering"
 
 
 #### Tips
-
+1. Change `node index.js` to `NODE_ENV=production node index.js`
 
 
 #### Reference
