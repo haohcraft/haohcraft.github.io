@@ -12,6 +12,12 @@ There are some interesting Redux/React related repos worthy to dive into.
 ##### [Redux-Component](https://github.com/tomchentw/redux-component)
 > A isolated redux store is created for each React component instance. It has nothing to do with your global flux architecture. 
 
+There are four parts:
+1. to create the store with component's reducer
+2. to use that `store.dispatch` to configure its actions, `mapDispatchToActions`
+3. to use `store.subscribe` to make sure that every acton fired would trigger the component's `setState(store.getState())`
+4. there are a few housekeeping thinking, like subscribe/unsubscribe with the store and exposing React lifecyle APIs
+
 ##### [multireducer](https://github.com/erikras/multireducer)
 > A utility to wrap many copies of a single Redux reducer into a single key-based reducer.
 

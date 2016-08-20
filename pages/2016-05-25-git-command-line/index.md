@@ -33,8 +33,7 @@ git rebase -i HEAD~2
 
 #### git push authentication failure due to two-factor check
 ```
-git remote -v 
-git remote remove origin 
+git remote -v && git remote remove origin 
 git remote add origin git@github.com:user/repo.git  
 ```
 
