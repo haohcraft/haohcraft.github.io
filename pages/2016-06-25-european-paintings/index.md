@@ -1,5 +1,5 @@
 ---
-title: Notes of "European Paintings: From Leonardo to Rembrandt to Goya"
+title: Notes of "European Paintings -- From Leonardo to Rembrandt to Goya"
 date: 1466861574381
 layout: post
 path: "/notes-of-european-paintings/"
