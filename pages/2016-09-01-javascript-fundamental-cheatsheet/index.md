@@ -6,4 +6,4 @@ path: "/javascript-fundamentals-cheatsheet/"
 intro: "A place where I put together a bunch of JS fundamentals"
 ---
 
-##### Object.keys() v.s. Object.Object.getOwnPropertyNames()
+###### Object.keys() v.s. Object.getOwnPropertyNames()
