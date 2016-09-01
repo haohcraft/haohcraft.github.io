@@ -17,6 +17,11 @@ intro: "About how to speed up React server side rendering"
 
 #### Tips
 1. Change `node index.js` to `NODE_ENV=production node index.js`
+    - Because React has a bunch of debug related messages generated unless it is in `production` mode
+2. Use minified React.js
+    - Change `react-dom/server` to `react/dist/react.min` for ReactDOMServer
+    - To do so, we avoid the checking time for whether it is in prod mode or not
+3. Babel Transforms
 
 
 #### Reference
