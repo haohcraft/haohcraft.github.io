@@ -113,6 +113,5 @@ So a possible page component would look like:
 ```
 const Page = composeView(config)(LayoutComponent);
 ```
-    
-##### Advantages
+
 
