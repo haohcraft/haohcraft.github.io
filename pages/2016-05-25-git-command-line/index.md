@@ -6,6 +6,14 @@ path: "/git-command-cheatsheet/"
 intro: "To put some useful but easy to forget Git command lines into this thread"
 ---
 
+#### How to push all local branches to remote
+```
+
+for remote in `git branch -r | grep -v master `; do git checkout --track $remote ; done
+git push --all
+
+```
+
 #### How to show the log in a graph
 
 ```
