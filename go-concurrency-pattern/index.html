@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+ <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="user-scalable=no width=device-width, initial-scale=1.0 maximum-scale=1.0"/><title></title><link rel="shortcut icon"/><style id="typography.js">/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+html {
+  box-sizing: border-box;
+  font-size: 112.5%;
+  line-height: 1.5em;
+  overflow-y: scroll;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  color: hsl(0,0%,20%);
+  font-family: georgia, serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+/* Make image responsive by default */
+img {
+  max-width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6,hgroup,ul,ol,dl,dd,p,figure,pre,table,fieldset,blockquote,form,noscript,iframe,img,hr {
+margin: 0;
+margin-bottom: 1.5rem;
+padding: 0;
+}
+
+blockquote {
+margin: 1.5rem 3.75rem;
+}
+
+b,strong {
+font-weight: 700
+}
+
+hr {
+background: hsl(0,0%,80%);
+border: none;
+height: 1px;
+margin-bottom: calc(1.5rem - 1px);
+}
+
+ol,ul {
+list-style-position: outside;
+margin-left: 1.5rem;
+}
+
+ul li,ol li {
+padding-left: 0;
+}
+
+code,kbd,pre,samp {
+font-size: 0.85rem;
+line-height: 1.5rem;
+}
+
+table {
+font-size: 1rem;
+line-height: 2.25rem;
+width: 100%;
+}
+
+thead {
+text-align: left;
+}
+
+h1,h2,h3,h4,h5,h6 {
+color: hsl(0,0%,20%);
+font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+font-weight: 700;
+}
+
+h1 {
+font-size: 1.728rem;
+line-height: 2.25rem;
+}
+
+h2 {
+font-size: 1.44rem;
+line-height: 2.25rem;
+}
+
+h3 {
+font-size: 1.2rem;
+line-height: 1.5rem;
+}
+
+h4 {
+font-size: 1.12924rem;
+line-height: 1.5rem;
+}
+
+h5 {
+font-size: 1.06266rem;
+line-height: 1.5rem;
+}
+
+h6 {
+font-size: 1rem;
+line-height: 1.5rem;
+}
+
+
+</style><link rel="stylesheet" href="/styles.css"/></head><body class="landing-page"><div id="react-mount"><div style="max-width:36rem;margin-left:auto;margin-right:auto;padding:3rem 0.75rem;" data-reactid=".1lmjhfy09vk" data-react-checksum="-1346897487"><h3 data-reactid=".1lmjhfy09vk.0:0"><a style="text-decoration:none;color:inherit;" href="/" data-reactid=".1lmjhfy09vk.0:0.0">Hao</a></h3><div class="markdown" data-reactid=".1lmjhfy09vk.0:1"><h1 data-reactid=".1lmjhfy09vk.0:1.0">Go Concurrency Pattern</h1><div data-reactid=".1lmjhfy09vk.0:1.1"><p>Note from <a href="https://www.youtube.com/watch?v=f6kdp27TYZs">this video</a></p>
+<h3>Basic</h3>
+<h4>What’s concurrency ?</h4>
+<p>Concurrency is the composition of independently executing computations.</p>
+<p>Concurrency is a way to structure software, particularly as a way to write clean code that interacts well with the real world.</p>
+<h5>Concurrency is not parallelism</h5>
+<blockquote>
+<p>not quite understand this part tho</p>
+</blockquote>
+<p>Concurrency is not parallelism, tho it enables parallilsm.</p>
+<p>If you have only one processor, your program can still be concurrent but it cannot be parallel.</p>
+<p>On the other hand, a well-written concurrent program might run efficiently in parallel on a multiprocessor. That property could be important…</p>
+<p>See <a href="">tinyurl.com/goconcnotpar</a> for more on that distinction</p>
+<h5>A model for software construction</h5>
+<p>Easy to understand</p>
+<h4>History</h4>
+<p><a href="http://spinroot.com/courses/summer/Papers/hoare_1978.pdf">Hoare’s CSP</a> paper in 1978</p>
+<p>Dijkstra’s guarded commands</p>
+<h4>Distinction</h4>
+<p>Go is distinguished by first-class <em>channels</em>.</p>
+<h3>Basic Example</h3>
+<p>…
+…</p>
+<h4>Goroutines</h4>
+<p>What is a goroutine? It’s an independently executing function, launched by a go statement.</p>
+<p>It has its own call stack, which grows and shrinks as required.</p>
+<p>It’s very cheap. It’s practical to have thousands, even hundres of thousands of goroutines.</p>
+<p>It’s not a thread.</p>
+<p>There might be only one thread in a program with thousands of goroutines.</p>
+<p>Instead, goroutines are multiplexed dynamically onto threads as needed to keep all the goroutines running.</p>
+<p>But if you think of it as a very cheap thread, you won’t be far off.</p>
+<h4>Communication</h4>
+<h4>Channels</h4>
+<p>A channel in Go provides a connection b/w two goroutines, allowing them to communicate.</p>
+<pre><code><span class="hljs-comment">// Declaring and initializing</span>
+<span class="hljs-keyword">var</span> c <span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>
+c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
+
+</code></pre>
+<pre><code><span class="hljs-comment">// Sending on a channel</span>
+c &lt;- <span class="hljs-number">-1</span>
+</code></pre>
+<pre><code><span class="hljs-comment">// Receiving from a channel</span>
+<span class="hljs-comment">// The 'arrow' indicates the direction of data flow</span>
+<span class="hljs-keyword">value</span> = &lt;-c
+</code></pre>
+<h5>Using channels</h5>
+<p>A channel connects the main and boring goroutines so they can communicate.</p>
+<pre><code><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+	<span class="hljs-keyword">go</span> boring(<span class="hljs-string">'boring'</span>, c)
+	<span class="hljs-keyword">for</span> i:= <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++ {
+		fmt.Printf(<span class="hljs-string">"You say: %q\n"</span>, &lt;-c)
+	}
+	fmt.Println(<span class="hljs-string">'You are boring; I am leaving'</span>)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">boring</span><span class="hljs-params">(msg <span class="hljs-keyword">string</span>, c <span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)</span></span> {
+	<span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>;; i++ {
+		c &lt;- fmt.Sprintf(<span class="hljs-string">"%s %d"</span>, msg, i)
+		time.Sleep(time.Duration(rand.Intn(le3)) * time.Millisecond)
+	}
+}
+
+</code></pre>
+<h5>Synchronization</h5>
+<p>A sender and receiver must both be ready to play their part in the communicaton. Otherwise we wait until they are.</p>
+<p>Thus channels both communicate and synthronize.</p>
+<h5>The Go approach</h5>
+<p>Don’t communicate by sharing memeory, share memory by communicating.</p>
+<h4>“Patterns”</h4>
+<h5>Generator: function that returns a channel</h5>
+<p>Channels are first-class values, just like strings or integers</p>
+<pre><code>c := boring(<span class="hljs-string">"boring!"</span>) <span class="hljs-comment">// Function returning a channel</span>
+<span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++ {
+	fmt.Printf(<span class="hljs-string">"You say: %q\n"</span>, &lt;-c)
+}
+fmt.Println(<span class="hljs-string">'You are boring; I am leaving'</span>)
+</code></pre>
+<pre><code><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">boring</span><span class="hljs-params">(msg <span class="hljs-keyword">string</span>)</span> &lt;-<span class="hljs-title">chan</span> <span class="hljs-title">string</span></span> {
+	c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+	<span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> { <span class="hljs-comment">// We launch the goroutine from inside the function</span>
+		<span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>;;i++ {
+			c &lt;- fmt.Sprinrf(<span class="hljs-string">"%s %d"</span>, msg, i)
+			time.Sleep(time.Duration(rand.Intn(le3)) * time.Millisecond)
+		}
+	}()
+	<span class="hljs-keyword">return</span> c <span class="hljs-comment">// Return the channel to the caller</span>
+}
+
+</code></pre>
+<h5>Channels as a handle on a service</h5>
+<p>Our boring function returns a channel that lets us communicate with the boring service it provides.</p>
+<p>We can have more instances of the service.</p>
+<pre><code><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	joe := boring(<span class="hljs-string">'Joe'</span>)
+	ann := boring(<span class="hljs-string">'Ann'</span>)
+	<span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">5</span>; i++ {
+		fmt.Println(&lt;-joe)
+		fmt.Println(&lt;-ann)
+	}
+	fmt.Println(<span class="hljs-string">'You are boring; I am leaving'</span>);
+}
+
+</code></pre>
+<h4>Multiplexing</h4>
+<p>These programs make Joe and Ann count in lockstep
+We can instead use a fan-in function to let whoever is ready talk</p>
+<pre><code><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fanIn</span><span class="hljs-params">(input1, input2 &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)</span> &lt;-<span class="hljs-title">chan</span> <span class="hljs-title">string</span></span> {
+	c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+	<span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> { <span class="hljs-keyword">for</span> { c &lt;- &lt;-input1 } }()
+	<span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> { <span class="hljs-keyword">for</span> { c &lt;- &lt;-input2 } }()
+	<span class="hljs-keyword">return</span> c
+}
+</code></pre>
+<pre><code><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	c := fanIn(boring(<span class="hljs-string">'Joe'</span>), boring(<span class="hljs-string">'Ann'</span>))
+	<span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">5</span>; i++ {
+		fmt.Println(&lt;-c)
+	}
+}
+
+</code></pre>
+<h4>Restoring sequencing</h4>
+<blockquote>
+<p>no quite understand tho</p>
+</blockquote>
+<p>Send a channel on a channel, making goroutine wait its turn.
+Receive all messages, then enable them again by sending on a private channel.
+First we define a message type that contains a channel for the reply.</p>
+<pre><code><span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Message</span></span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
+	<span class="hljs-keyword">str</span> string
+	wait chan <span class="hljs-keyword">bool</span>
+}
+</code></pre>
+<h4>Select</h4>
+<p>A control structure unique to concurrency
+The reason channels and goroutines are built into the language</p>
+<p>The select statement provides another way to handle multiple channels.
+It’s like a switch, but each case is a communication:</p>
+<ul>
+<li>All channels are valued.</li>
+<li>Selection blocks until one communication can proceed, which one does</li>
+<li>if multiple can proceed, select chooses pseudo-randomly</li>
+<li>A default clause, if present, executes immediately if no channel is ready</li>
+</ul>
+<h5>Fan-in using select</h5>
+<pre><code><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fanIn</span><span class="hljs-params">(input1, input2 &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)</span> &lt;-<span class="hljs-title">chan</span> <span class="hljs-title">string</span></span> {
+	c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+	<span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> {
+		<span class="hljs-keyword">for</span> {
+			<span class="hljs-keyword">select</span> {
+			<span class="hljs-keyword">case</span> s := &lt;-input1: c &lt;- s
+			<span class="hljs-keyword">case</span> s := &lt;-input2: c &lt;- s
+			}
+		}
+	}
+	<span class="hljs-keyword">return</span> c
+}
+
+</code></pre>
+<h5>Timeout using select</h5>
+<h5>Quit channel</h5>
+<p><a href="https://github.com/lintide/GoConcurrencyPatterns#quit-channel">this</a></p>
+<h5>Receive on quit channel</h5>
+<h5>Daisy-chain</h5>
+<h3>Systems software</h3>
+<p>Go was designed for writing systems software. Let’s see how the concurrency features come into play.</p>
+<h4>Example: Google Search</h4>
+</div><em style="display:block;margin-bottom:3rem;" data-reactid=".1lmjhfy09vk.0:1.2"><span data-reactid=".1lmjhfy09vk.0:1.2.0">Posted </span><span data-reactid=".1lmjhfy09vk.0:1.2.1">September 10, 2016</span></em><hr style="margin-bottom:3rem;" data-reactid=".1lmjhfy09vk.0:1.3"/><div data-reactid=".1lmjhfy09vk.0:1.4"><h6 style="margin:0;font-size:0.61803rem;line-height:1.5rem;letter-spacing:-0.5px;" data-reactid=".1lmjhfy09vk.0:1.4.0">READ THIS NEXT:</h6><h3 style="margin-bottom:0.375rem;" data-reactid=".1lmjhfy09vk.0:1.4.1"><a href="/testing-react-component-takeaway/?readNext=true" data-reactid=".1lmjhfy09vk.0:1.4.1.0">My Takeaway for React Component Testing</a></h3><p data-reactid=".1lmjhfy09vk.0:1.4.2">Introduce
+I have been working with React/Redux since Oct., 2015 at Dataminr in production. Along this journey, there are some takeawayes I gained and would like to share. Hopefully it will help you...</p><hr data-reactid=".1lmjhfy09vk.0:1.4.3"/></div><div title="Go Concurrency Pattern" data-reactid=".1lmjhfy09vk.0:1.5"><div id="disqus_thread" data-reactid=".1lmjhfy09vk.0:1.5.0"></div><noscript data-reactid=".1lmjhfy09vk.0:1.5.1"><span data-reactid=".1lmjhfy09vk.0:1.5.1.0"><span data-reactid=".1lmjhfy09vk.0:1.5.1.0.0">Please enable JavaScript to view the</span><a href="http://disqus.com/?ref_noscript" data-reactid=".1lmjhfy09vk.0:1.5.1.0.1">comments powered by Disqus.</a></span></noscript><a href="http://disqus.com" class="dsq-brlink" data-reactid=".1lmjhfy09vk.0:1.5.2"><span data-reactid=".1lmjhfy09vk.0:1.5.2.0">blog comments powered by</span><span class="logo-disqus" data-reactid=".1lmjhfy09vk.0:1.5.2.1">Disqus</span></a></div></div><script data-reactid=".1lmjhfy09vk.0:2"></script><span style="display:block;clear:both;" data-reactid=".1lmjhfy09vk.1"> </span></div></div><script src="/bundle.js"></script></body></html>
