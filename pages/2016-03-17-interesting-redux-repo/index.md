@@ -9,6 +9,9 @@ intro: "There are some interesting Redux/React related repos worthy to dive into
 There are some interesting Redux/React related repos worthy to dive into.
 
 
+##### [React-virtualized](https://github.com/bvaughn/react-virtualized)
+
+
 ##### [Redux-Component](https://github.com/tomchentw/redux-component)
 > A isolated redux store is created for each React component instance. It has nothing to do with your global flux architecture. 
 
