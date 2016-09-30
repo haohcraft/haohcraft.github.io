@@ -8,8 +8,8 @@ intro: "There are some interesting Redux/React related repos worthy to dive into
 
 There are some interesting Redux/React related repos worthy to dive into.
 
-#### About Using Context
 ##### [react-tunnel](https://github.com/gnoff/react-tunnel)
+> React components and decorators for putting context-like values into context and pulling them out as props
 
 
 ##### [React-virtualized](https://github.com/bvaughn/react-virtualized)
