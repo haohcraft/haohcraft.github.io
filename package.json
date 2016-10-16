@@ -43,9 +43,11 @@
     "moment": "^2.13.0",
     "react-disqus-thread": "^0.3.1",
     "react-google-analytics": "^0.2.0",
-    "react-icons": "^2.1.0",
+    "react-icons": "^2.2.1",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.0",
-    "redbox-react": "^1.0.1"
+    "redbox-react": "^1.0.1",
+    "safe-access": "^0.1.0",
+    "underscore.string": "^3.3.4"
   }
 }

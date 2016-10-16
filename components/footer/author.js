@@ -25,13 +25,8 @@ export default class Author extends Component {
         };
         return (
             <div className={`${this.cn}`} style={style}>
-                <div className={`${this.cn}-profile`} style={styleProfile}>
-                <a target="_blank" href="https://www.linkedin.com/in/haohjob">
-                    <img src={prefixLink('/assets/images/base/profile.jpg')}/>
-                </a>
-                </div>
                 <div className={`${this.cn}-bio`} style={styleBio}>
-                <strong>{config.authorName}</strong> lives in New York City and currently works as a Front End Engineer at <a href="https://www.dataminr.com/" target="_blank">Dataminr</a> to write abstracts with React/Redux.
+                <strong>{config.authorName}</strong> lives in New York City and currently works as a Software Engineer at <a href="https://www.datadoghq.com/" target="_blank">Datadog</a> to build dashboards. Previously he worked at <a href="https://www.dataminr.com/" target="_blank">Dataminr</a> as a Front End Engineer responsible for writting React/Redux UI abstracts and also worked as a SE at <a href="https://www.wearesmartertravel.com/" target="_blank">SmarterTravelMedia</a> in Boston, MA before.
                 <SocialNetworks />
                 </div>
             </div>

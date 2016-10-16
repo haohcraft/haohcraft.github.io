@@ -1,48 +1,46 @@
 import React from 'react'
-import DocumentTitle from 'react-document-title'
+import Helmet from "react-helmet"
+
 import { prefixLink } from 'gatsby-helpers'
-import { TypographyStyle } from 'utils/typography'
+import { TypographyStyle, GoogleFont } from 'react-typography'
+import typography from './utils/typography'
 
-export default class Html extends React.Component {
-  render () {
-    const { favicon, body } = this.props
-    let title = DocumentTitle.rewind()
-    if (this.props.title) {
-      title = this.props.title
+const BUILD_TIME = new Date().getTime()
+
+module.exports = React.createClass({
+  propTypes () {
+    return {
+      body: React.PropTypes.string,
     }
+  },
+  render () {
+    const head = Helmet.rewind()
 
-    let cssLink
+    let css
     if (process.env.NODE_ENV === 'production') {
-      cssLink = <link rel="stylesheet" href={prefixLink('/styles.css')} />
+      css = <style dangerouslySetInnerHTML={{ __html: require('!raw!./public/styles.css') }} />
     }
 
     return (
       <html lang="en">
         <head>
-          <meta charSet="utf-8"/>
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
+          <meta charSet="utf-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta
             name="viewport"
-            content="user-scalable=no width=device-width, initial-scale=1.0 maximum-scale=1.0"
+            content="width=device-width, initial-scale=1.0"
           />
-          <title>{this.props.title}</title>
-          <link rel="shortcut icon" href={favicon} />
-          <TypographyStyle/>
-          {cssLink}
+          {head.title.toComponent()}
+          {head.meta.toComponent()}
+          <TypographyStyle typography={typography} />
+          <GoogleFont typography={typography} />
+          {css}
         </head>
-        <body className="landing-page">
-          <div id="react-mount" dangerouslySetInnerHTML={{ __html: body }} />
-          <script src={prefixLink('/bundle.js')}/>
+        <body>
+          <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
+          <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />
         </body>
       </html>
     )
-  }
-}
-
-Html.propTypes = {
-  body: React.PropTypes.string,
-  favicon: React.PropTypes.string,
-  title: React.PropTypes.string,
-}
-
-Html.defaultProps = { body: '' }
+  },
+})
