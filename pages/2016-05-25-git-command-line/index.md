@@ -6,6 +6,14 @@ path: "/git-command-cheatsheet/"
 intro: "To put some useful but easy to forget Git command lines into this thread"
 ---
 
+#### Set `push.default`
+
+```
+git config --global push.default current
+```
+
+for more [info](https://stackoverflow.com/questions/948354/default-behavior-of-git-push-without-a-branch-specified/948397#948397)
+
 #### How to push all local branches to remote
 ```
 
