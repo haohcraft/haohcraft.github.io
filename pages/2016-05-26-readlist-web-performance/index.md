@@ -8,6 +8,9 @@ path: "/readlist-about-web-performance/"
 
 Good articles about runtime web performance:
 
+#### High Level Explain
+- [High Performance Animations](https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/)
+
 #### Concept
 
 - [WebFundamentals About Performance](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#avoid-layout-thrashing)
